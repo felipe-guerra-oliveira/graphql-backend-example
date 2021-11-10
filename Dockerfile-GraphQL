@@ -1,0 +1,18 @@
+FROM ubuntu:latest
+
+RUN apt update -yq \ 
+	&& apt install openjdk-17-jdk wget unzip -yq
+
+WORKDIR /opt/gradle
+
+RUN wget -q https://services.gradle.org/distributions/gradle-7.3-bin.zip
+
+RUN unzip -q gradle-7.3-bin.zip && rm -f gradle-7.3-bin.zip
+
+ENV PATH="$PATH:/opt/gradle/gradle-7.3"
+
+WORKDIR /app/graphql-example
+
+COPY . /app/graphql-example
+
+CMD ["/opt/gradle/gradle-7.3/bin/gradle", "bootRun"]
