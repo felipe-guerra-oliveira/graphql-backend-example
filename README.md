@@ -6,7 +6,7 @@ Source-code of the GraphQL backend server example
 
 - Build
 ```
-docker build -t graphql-example/backend:1.0.0 -f Dockerfile-OpenJDK .
+docker build -t graphql-example/backend:1.0.0 -f Dockerfile-GraphQL .
 ```
 
 - Run
